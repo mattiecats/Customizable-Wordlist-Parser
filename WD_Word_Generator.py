@@ -5,7 +5,7 @@ def individualy():
     individual = []
     individual = f.read().split()
     return individual
-
+    # makes every word in the wordlist singular
 
 def addfront(mainlist):
     front = ['1990' + s for s in mainlist]
@@ -40,17 +40,18 @@ def main():
     list1 = addrear(removechar(mainlist))
     list2 = addfront(removechar(mainlist))
     list3 = addfront(removechar(individualy()))
-    list4 = addrear(removechar(individualy()))
+    list4 = addrear(removechar(individualy())) #combines list
 
     final_list = list1 + list2 + list3 + list4
+    
     for i in range(len(final_list)):
         final_list[i] = final_list[i].lower()
-    print(final_list)
+    print(final_list) #lowercase parser
 
     with open('output.txt', 'w+') as output:
         for items in final_list:
             output.write('%s\n' % items)
-    output.close()
+    output.close() #writes to file
 
 
 if __name__ == '__main__': main()
